@@ -1125,3 +1125,73 @@ nbApp.lib.redHash = function(appMode){
 
 
 
+/**
+ Open popup window
+
+ @method popupWin
+ @for Library
+ @param { (String) } url Website URL
+ @param { (Number) } width Window Width
+ @param { (Number) } height Window Height
+ @return { (Object) } Window Object
+ @example
+ <p>
+ nbApp.lib.popupWin("http://www.nockbits.com");
+ </p>
+ **/
+nbApp.lib.popupWin = function(url, width, height){
+  return window.open(url, 'win1', "height="+height+",width="+width+",scrollbars=auto");
+ };
+
+/**
+ Is Html5 Support
+
+ @method isHTML5
+ @for Library
+ @example
+ <p>
+ nbApp.lib.isHTML5();
+ </p>
+ **/
+nbApp.lib.isHTML5 = function(){
+ return typeof FileReader != 'undefined' || 'draggable' in document.createElement('span') || !!window.FormData || 'upload' in new XMLHttpRequest;
+};
+
+/**
+ Object Size
+
+ @method objectSize
+ @for Library
+ @param { (Object) } obj Object Array
+ @return { (Number) } Object size
+ @example
+ <p>
+ nbApp.lib.objectSize({"a":1});
+ </p>
+ **/
+nbApp.lib.objectSize = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
+// Add Custom functions/Actions To Jquery Object
+(function($) {
+    $.fn.toggleDisabled = function(){
+        return this.each(function(){
+            this.disabled = !this.disabled;
+        });
+    };
+    $.fn.shakeMe = function(){
+        var anSpeed = 300;
+        return this.each(function(){
+            $(this)
+                .animate({"margin-left":"+=10"}, anSpeed)
+                .animate({"margin-left": "-=10"}, anSpeed)
+                .animate({"margin-left":"+=10"}, anSpeed)
+                .animate({"margin-left": "-=10"}, anSpeed);
+        });
+    };
+ })(jQuery);
