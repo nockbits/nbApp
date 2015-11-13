@@ -13,3 +13,21 @@ Combining the various modules/functions you actually create a beautiful, code & 
 
 Dive in and dirty your hands with some example code.
 Share your views/thoughts to make it Adaptable-Simpler-Flexible with the concept of "KISS".
+
+
+### 1. Everything under one namespace
+```javascript
+var nbApp = {};
+```
+
+### 2. Defining modules/controllers for the app
+```javascript
+nbApp.config = {};//Configuation Modules
+nbApp.main = {};//Main Run Module
+nbApp.articles = {};//Articles Module
+nbApp.lib = {};//Common Library
+nbApp.ajaxXHR = {};//AJAX Module
+...
+...
+...
+```
